@@ -1,0 +1,76 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:           #F7F8FC;
+  --surface:      #FFFFFF;
+  --surface-2:    #F2F4F8;
+
+  --primary:      #FF6B6B;
+  --primary-light:#FFF0F0;
+  --primary-dark: #E55555;
+
+  --accent:       #FFD93D;
+  --accent-green: #6BCB77;
+  --accent-blue:  #4D96FF;
+  --accent-purple:#C77DFF;
+
+  --text-1:       #1A1A2E;
+  --text-2:       #6B7280;
+  --text-3:       #B0B7C3;
+
+  --border:       #EAECF0;
+
+  --sp-1: 4px;  --sp-2: 8px;   --sp-3: 12px; --sp-4: 16px;
+  --sp-5: 20px; --sp-6: 24px;  --sp-8: 32px; --sp-10: 40px;
+
+  --r-sm:   8px;
+  --r-md:   12px;
+  --r-lg:   16px;
+  --r-xl:   20px;
+  --r-2xl:  24px;
+  --r-pill: 999px;
+
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.10);
+
+  --font: 'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+
+  --nav-h: 64px;
+  --bottom-nav-h: 72px;
+}
+
+html { font-size: 16px; -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text-1);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+input, textarea { font-family: inherit; }
+img { display: block; max-width: 100%; }
+ul, ol { list-style: none; }
+
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: var(--r-pill); }
+
+/* Badge rarity colors */
+.badge-common    { background: #E5E7EB; color: #6B7280; }
+.badge-uncommon  { background: #D1FAE5; color: #059669; }
+.badge-rare      { background: #DBEAFE; color: #2563EB; }
+.badge-epic      { background: #EDE9FE; color: #7C3AED; }
+.badge-legendary { background: linear-gradient(135deg,#FFD93D,#FF6B6B,#C77DFF); color: #fff; }

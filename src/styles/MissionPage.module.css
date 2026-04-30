@@ -1,0 +1,31 @@
+.page {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: var(--sp-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+.roleRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-2);
+}
+
+.roleBtn {
+  padding: 12px;
+  border-radius: var(--r-lg);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: var(--font);
+  min-height: 48px;
+}
+
+.dateRow {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
