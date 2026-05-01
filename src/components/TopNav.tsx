@@ -1,7 +1,8 @@
-import { NavLink } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import { PiHouseBold, PiCalendarBold, PiTrophyBold, PiUserBold } from 'react-icons/pi';
+import type { IconType } from 'react-icons';
 
-const NAV_ITEMS = [
+const NAV_ITEMS: { to: string; icon: IconType; label: string }[] = [
   { to: '/home',     icon: PiHouseBold,    label: '홈'     },
   { to: '/calendar', icon: PiCalendarBold, label: '달력'   },
   { to: '/mission',  icon: PiTrophyBold,   label: '미션'   },
@@ -13,6 +14,8 @@ interface TopNavProps {
 }
 
 export function TopNav({ houseName = '행복달력' }: TopNavProps) {
+  const { pathname } = useLocation();
+
   return (
     <header
       style={{
@@ -30,30 +33,29 @@ export function TopNav({ houseName = '행복달력' }: TopNavProps) {
         🏠 {houseName}
       </span>
       <nav style={{ display: 'flex', gap: 4 }}>
-        {NAV_ITEMS.map(({ to, icon: Icon, label }) => (
-          <NavLink
-            key={to}
-            to={to}
-            style={({ isActive }) => ({
-              display: 'flex', alignItems: 'center', gap: 6,
-              padding: '8px 16px',
-              borderRadius: 'var(--r-pill)',
-              color: isActive ? 'var(--primary)' : 'var(--text-2)',
-              background: isActive ? 'var(--primary-light)' : 'transparent',
-              fontWeight: isActive ? 700 : 500,
-              fontSize: 14,
-              textDecoration: 'none',
-              transition: 'all 0.15s',
-            })}
-          >
-            {({ isActive }) => (
-              <>
-                <Icon style={{ fontSize: 18, strokeWidth: isActive ? 2.5 : 1.5 }} />
-                {label}
-              </>
-            )}
-          </NavLink>
-        ))}
+        {NAV_ITEMS.map(({ to, icon: Icon, label }) => {
+          const isActive = pathname === to;
+          return (
+            <Link
+              key={to}
+              to={to}
+              style={{
+                display: 'flex', alignItems: 'center', gap: 6,
+                padding: '8px 16px',
+                borderRadius: 'var(--r-pill)',
+                color: isActive ? 'var(--primary)' : 'var(--text-2)',
+                background: isActive ? 'var(--primary-light)' : 'transparent',
+                fontWeight: isActive ? 700 : 500,
+                fontSize: 14,
+                textDecoration: 'none',
+                transition: 'all 0.15s',
+              }}
+            >
+              <Icon style={{ fontSize: 18 }} />
+              {label}
+            </Link>
+          );
+        })}
       </nav>
     </header>
   );
